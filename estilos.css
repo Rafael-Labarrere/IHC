@@ -15,7 +15,7 @@
     height: 50px;
 }
 body {
-      background-image: url('background_img.jpg');
+      background-image: url('../IHC/Imagens/background_img.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
