@@ -9,12 +9,35 @@
     
 }
 
-.introducao {
-    justify-content: center;
-    align-items: center;
-}
 
 #imgheader{
     width: 100px;
-    height: 75px;
+    height: 50px;
 }
+body {
+      background-image: url('background_img.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .introducao {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px black;
+    }
