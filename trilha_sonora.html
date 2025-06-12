@@ -57,5 +57,76 @@
                 </div>
             </nav>
         </header>
+
+    <!-- Conteúdo da Página -->
+    <main class="container mt-5 pt-5">
+    <section class="bg-text p-4 rounded-4 shadow">
+        <h2 class="text-center mb-4">Trilha Sonora de The Office (US)</h2>
+        <p class="fs-5">
+            A trilha sonora de <strong>The Office (US)</strong> é marcante mesmo sendo discreta. Aqui estão três das faixas mais memoráveis da série:
+        </p>
+
+        <div class="mb-4">
+            <h5>1. The Office Theme Song – Jay Ferguson</h5>
+            <p class="fs-5">A música de abertura clássica da série.</p>
+            <button class="btn btn-outline-primary play-btn" data-audio="theme">
+                <i class="bi bi-play-fill"></i> Ouvir trecho
+            </button>
+            <audio id="audio-theme" src="../audios/The Office (US) - Intro.mp3"></audio>
+        </div>
+
+        <div class="mb-4">
+            <h5>2. Forever – Chris Brown</h5>
+            <p class="fs-5">Usada na famosa cena do casamento de Jim e Pam.</p>
+            <button class="btn btn-outline-primary play-btn" data-audio="forever">
+                <i class="bi bi-play-fill"></i> Ouvir trecho
+            </button>
+            <audio id="audio-forever" src="audios/forever.mp3"></audio>
+        </div>
+
+        <div class="mb-4">
+            <h5>3. Sing – Travis</h5>
+            <p class="fs-5">Presente em um dos momentos mais sensíveis da série.</p>
+            <button class="btn btn-outline-primary play-btn" data-audio="sing">
+                <i class="bi bi-play-fill"></i> Ouvir trecho
+            </button>
+            <audio id="audio-sing" src="audios/sing.mp3"></audio>
+        </div>
+    </section>
+</main>
+
+<script>
+  const buttons = document.querySelectorAll(".play-btn");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const audioId = btn.dataset.audio;
+      const audio = document.getElementById("audio-" + audioId);
+
+      // Pausa todos os outros áudios
+      document.querySelectorAll("audio").forEach(a => {
+        if (a !== audio) {
+          a.pause();
+          a.currentTime = 0;
+        }
+      });
+
+      // Toca ou pausa o áudio clicado
+      if (audio.paused) {
+        audio.play();
+        // Parar após 30 segundos
+        setTimeout(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        }, 30000);
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  });
+</script>
+
+
 </body>
 </html>
