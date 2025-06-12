@@ -9,6 +9,12 @@
     
 }
 
+#imgmiddle{
+    width: 100px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
 
 #imgheader{
     width: 100px;
@@ -41,3 +47,14 @@ body {
       margin-bottom: 2rem;
       text-shadow: 1px 1px 2px black;
     }
+
+.bg-text {
+  background-color: rgba(255, 255, 255, 0.577); /* white with transparency */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.fs-5 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
