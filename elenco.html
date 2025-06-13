@@ -138,7 +138,7 @@
 
         </header>
     <script>
-                //Script para acionar Popover - Conforme documentação do Bootstrap
+        //Script para acionar Popover - Conforme documentação do Bootstrap
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             return new bootstrap.Popover(popoverTriggerEl)
@@ -149,7 +149,7 @@
         const inputCheck = document.querySelector("#modo-noturno");
         const body = document.querySelector("body");
         const nav = document.querySelector("nav"); // Seleciona a navbar
-
+        
         // Função para mudar o modo
         function alternarModo() {
             const modo = inputCheck.checked ? 'dark' : 'light';
@@ -158,17 +158,34 @@
             if (modo === 'dark') {
                 nav.classList.remove('navbar-light', 'bg-white');
                 nav.classList.add('navbar-dark', 'bg-dark');
+                
+                localStorage.setItem('theme', 'dark');
             } else {
                 nav.classList.remove('navbar-dark', 'bg-dark');
                 nav.classList.add('navbar-light', 'bg-white');
+               
+                localStorage.setItem('theme', 'light');
             }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            nav.classList.remove('navbar-light', 'bg-white');
+            nav.classList.add('navbar-dark', 'bg-dark');
+            inputCheck.checked = 'dark';
+            body.setAttribute("data-bs-theme", 'dark');
+        } else {
+            nav.classList.remove('navbar-dark', 'bg-dark');
+            nav.classList.add('navbar-light', 'bg-white');
+            body.setAttribute("data-bs-theme", 'light');
         }
 
         // Clique no checkbox
         inputCheck.addEventListener('click', alternarModo);
 
         // Chama a função ao carregar a página para aplicar o modo salvo
-        window.addEventListener('DOMContentLoaded', alternarModo);
+        document.addEventListener( "DOMContentLoaded", savedTheme());
+        
     </script>
 </body>
 </html>
